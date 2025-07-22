@@ -1,4 +1,5 @@
 import {IncomingMessage} from "node:http";
+import {PORT} from "../config/userServerConfig.ts";
 
 export const sayHi = (name:string):void => {
     console.log(`Hello ${name}`)
@@ -20,6 +21,6 @@ export async function parseBody(req: IncomingMessage) {
     })
 }
 
-export function parseUrl(url: string, baseUrl: string = "http://localhost:3005") {
+export function parseUrl(url: string, baseUrl: string = `http://localhost:${PORT}`) {
     return new URL(url, baseUrl);
 }
